@@ -16,4 +16,9 @@
     <string name="or_login_with">Or Login with</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="send_link">Send Link</string>
+    <string name="desc">Don’t worry! It happens. Please enter the email associated with your account.</string>
+    <string name="please_check_your_email">Please check your email</string>
+    <string name="we_ve_sent_a_code_to">We’ve sent a code to</string>
+    <string name="destinatik04_gmail_com">destinatik04@gmail.com</string>
 </resources>
