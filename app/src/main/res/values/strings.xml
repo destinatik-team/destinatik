@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">Destinatik</string>
+    <string name="welcome_back">Welcome Back!</string>
+    <string name="forgot_password">Forgot Password?</string>
+    <string name="google">Google</string>
+    <string name="register_now">Register Now</string>
+    <string name="don_t_have_an_account">Don’t have an account?</string>
+    <string name="login_now">Login Now</string>
+    <string name="already_have_an_account">Already have an account?</string>
+    <string name="confirm_password">Confirm Password</string>
+    <string name="register">Register</string>
+    <string name="or_register_with">Or Register with</string>
+    <string name="enter_your_email">Enter your email</string>
+    <string name="enter_your_password">Enter your password</string>
+    <string name="login">Login</string>
+    <string name="or_login_with">Or Login with</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

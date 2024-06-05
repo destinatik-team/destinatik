@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="black">#FF000000</color>
+    <color name="white">#FFFFFFFF</color>
+    <color name="BlueDark">#1C294B</color>
+    <color name="Gray">#F7F8F9</color>
+    <color name="GrayLight">#E8ECF4</color>
+    <color name="GrayDark">#8391A1</color>
+    <color name="GrayMediumDark">#6A707C</color>
+    <color name="colorPrimary">#1C294B</color>
+    <color name="colorPrimaryVariant">#34A853</color>
+    <color name="colorSecondary">#FFFFFFFF</color>
+    <color name="colorSecondaryVariant">#BEE3CB</color>
+    <color name="LightSteelBlue">#BBC0CA</color>
+    <color name="BlackPearl">#101218</color>
+    <color name="spaceCadet">#1C2948</color>
+    <color name="purpleMountainMajesty">#78829D</color>
+    <color name="Gunmetal">#11182A</color>
+</resources>

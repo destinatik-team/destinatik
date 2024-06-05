@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/white"
+    tools:context=".RegisterActivity">
+
+    <ImageView
+        android:id="@+id/ivBackRegiser"
+        android:layout_width="55dp"
+        android:layout_height="55dp"
+        android:src="@drawable/back"
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="23dp"/>
+
+    <TextView
+        android:id="@+id/R_txt_register"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="25dp"
+        android:layout_marginTop="130dp"
+        android:fontFamily="@font/urbanistbold"
+        android:text="Hello! Register to get started"
+        android:textSize="32sp" />
+
+    <LinearLayout
+        android:id="@+id/layout_login"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_below="@+id/R_txt_register"
+        android:layout_marginTop="30dp"
+        android:padding="20dp">
+
+        <EditText
+            android:id="@+id/R_username"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/button_shape"
+            android:backgroundTint="@color/Gray"
+            android:hint="Username"
+            android:padding="16dp"
+            android:textColorHint="@color/GrayDark"
+            android:fontFamily="@font/urbanistmedium"/>
+
+        <EditText
+            android:id="@+id/R_email"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/button_shape"
+            android:fontFamily="@font/urbanistmedium"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/Gray"
+            android:hint="Email"
+            android:padding="16dp"
+            android:textColorHint="@color/GrayDark"/>
+
+        <EditText
+            android:id="@+id/R_password"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/button_shape"
+            android:fontFamily="@font/urbanistmedium"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/Gray"
+            android:hint="Password"
+            android:padding="16dp"
+            android:textColorHint="@color/GrayDark"/>
+        <EditText
+            android:id="@+id/R_cpassword"
+            android:layout_width="match_parent"
+            android:layout_height="56dp"
+            android:background="@drawable/button_shape"
+            android:fontFamily="@font/urbanistmedium"
+            android:layout_marginTop="15dp"
+            android:backgroundTint="@color/Gray"
+            android:hint="@string/confirm_password"
+            android:padding="16dp"
+            android:textColorHint="@color/GrayDark"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/R_btn_register"
+        android:fontFamily="@font/urbanistsemibold"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/button_shape"
+        android:text="@string/register"
+        android:layout_below="@id/layout_login"
+        android:layout_centerHorizontal="true"
+        android:height="40dp"
+        android:width="370dp"/>
+
+    <LinearLayout
+        android:id="@+id/layout_or_login_with"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/R_btn_register"
+        android:layout_marginTop="25dp"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:paddingLeft="20dp"
+        android:paddingRight="20dp">
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/GrayLight" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="@string/or_register_with"
+            android:fontFamily="@font/urbanistsemibold"
+            android:textColor="@color/GrayMediumDark"
+            android:textSize="14sp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="1dp"
+            android:layout_weight="1"
+            android:background="@color/GrayLight" />
+
+    </LinearLayout>
+
+    <androidx.cardview.widget.CardView
+        android:id="@+id/card_google_login"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/layout_or_login_with"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:padding="10dp"
+        android:elevation="4dp"
+        app:cardCornerRadius="8dp">
+
+        <ImageView
+            android:id="@+id/img_google_login"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:contentDescription="@string/google"
+            android:src="@drawable/google_ic" />
+    </androidx.cardview.widget.CardView>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/card_google_login"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="32dp">
+
+        <TextView
+            android:id="@+id/text_below_google_login_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/urbanistmedium"
+            android:text="@string/already_have_an_account"
+            android:textColor="@color/GrayMediumDark"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/tvLogin"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/text_below_google_login_1"
+            android:layout_marginStart="5dp"
+            android:fontFamily="@font/urbanistmedium"
+            android:text="@string/login_now"
+            android:textColor="@color/colorSecondary"
+            android:textSize="14sp" />
+
+    </RelativeLayout>
+
+</RelativeLayout>
