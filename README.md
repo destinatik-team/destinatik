@@ -39,8 +39,7 @@ Request:
 ```
 {
   "usernameOrEmail": "example",
-  "password": "password123",
-  "token": "<token response>"
+  "password": "password123"
 }
 ```
 
@@ -48,7 +47,8 @@ Response:
 ```
 {
   "usernameOrEmail": "example",
-  "status": "1"
+  "status": "1",
+  "token": "<token response>"
 }
 ```
 
