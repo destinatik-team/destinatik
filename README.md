@@ -9,7 +9,7 @@ Destinatik API adalah sebuah aplikasi backend yang dibangun menggunakan Node.js 
 - Mendapatkan list pengguna
 
 ## Endpoint
-### POST /register**
+### POST /register
 
 Endpoint ini digunakan untuk melakukan registrasi pengguna baru. Pengguna harus mengirimkan username, email, dan password dalam bentuk JSON.
 
@@ -32,7 +32,7 @@ Response:
 }
 ```
 
-### POST /login**
+### POST /login
 Endpoint ini digunakan untuk melakukan login pengguna. Pengguna harus mengirimkan usernameOrEmail dan password dalam bentuk JSON.
 
 Request:
@@ -52,7 +52,7 @@ Response:
 }
 ```
 
-### GET /list**
+### GET /list
 
 Endpoint ini digunakan untuk mendapatkan daftar pengguna yang terdaftar.
 
