@@ -32,8 +32,8 @@ app.post('/register', (req, res) => {
   }
 
   connection.query(
-    'INSERT INTO user (id, username, email, password) VALUES (NULL, ?, ?, ?)',
-    [username, email, password],
+    'INSERT INTO user (id, username, email, password, token) VALUES (NULL, ?, ?, ?, ?)',
+    [username, email, password, '?'],
     (error, result) => {
       if (error) {
         console.error(error);
@@ -67,8 +67,16 @@ app.post('/login', (req, res) => {
       const user = rows[0];
       if (user.password === password) {
         const token = jwt.sign({ data: usernameOrEmail }, 'shhhhh');
-		res.set('Authorization', `Bearer ${token}`);
-        return res.json({ 'usernameOrEmail': usernameOrEmail, status: '1' });
+		// Update token di database
+        const updateQuery = "UPDATE user SET token = ? WHERE username = ? OR email = ?";
+        connection.query(updateQuery, [token, usernameOrEmail, usernameOrEmail], (err, result) => {
+			if (err) {
+				console.error(err);
+				return res.status(500).json({ error: 'Terjadi kesalahan saat memperbarui token' });
+			}
+			res.set('Authorization', `Bearer ${token}`);
+			return res.json({ 'usernameOrEmail': usernameOrEmail, status: '1' });
+		});
       } else {
         return res.status(401).json({ error: 'Username/email atau password salah' });
       }
