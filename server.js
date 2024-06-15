@@ -66,7 +66,8 @@ app.post('/login', (req, res) => {
 
       const user = rows[0];
       if (user.password === password) {
-        
+        const token = jwt.sign({ data: usernameOrEmail }, 'shhhhh');
+		res.set('Authorization', `Bearer ${token}`);
         return res.json({ 'usernameOrEmail': usernameOrEmail, status: '1' });
       } else {
         return res.status(401).json({ error: 'Username/email atau password salah' });
