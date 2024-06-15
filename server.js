@@ -84,10 +84,6 @@ app.get('/list', (req, res) => {
     res.json({rows});
   });
 });
-app.get('/jwt', (req, res) => {
-    const token = jwt.sign({ data: 'login' }, 'shhhhh');
-    res.json({ token });
-});
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
