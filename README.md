@@ -124,7 +124,7 @@ Response:
 5. Jika terjadi kesalahan saat menyimpan data, mengembalikan respons 500 Internal Server Error dengan pesan kesalahan.
 
 
-## POST /rating/list
+## GET /rating/list
 
 Menerima request untuk mengambil daftar rating, baik untuk semua rating atau hanya rating untuk tempat tertentu, dan mengembalikan respons dengan data rating yang sesuai.
 
@@ -154,7 +154,7 @@ Response:
 4. Menjalankan query SQL dan memeriksa apakah terjadi kesalahan. Jika terjadi kesalahan, mengembalikan respons 500 Internal Server Error dengan pesan kesalahan.
 5. Jika tidak terjadi kesalahan, mengembalikan respons 200 OK dengan data rating yang diambil dari database.
 
-## POST /rating/average
+## GET /rating/average
 
 Menerima request untuk mengambil rata-rata rating untuk suatu tempat, dan mengembalikan respons dengan data total jumlah rating dan nilai rata-rata rating.
 
