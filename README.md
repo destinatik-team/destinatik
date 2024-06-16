@@ -116,6 +116,14 @@ Response:
 }
 ```
 
+
+1. Mengambil nilai userId, placeId, dan rating dari request body.
+2. Memeriksa apakah semua field telah diisi. Jika tidak, mengembalikan respons 400 Bad Request.
+3. Jika semua field sudah diisi, menyimpan data rating ke dalam database menggunakan query SQL INSERT INTO.
+4. Jika penyimpanan berhasil, mengembalikan respons 201 Created dengan informasi penilaian yang baru ditambahkan.
+5. Jika terjadi kesalahan saat menyimpan data, mengembalikan respons 500 Internal Server Error dengan pesan kesalahan.
+
+
 ## POST /rating/list
 
 Menerima request untuk mengambil daftar rating, baik untuk semua rating atau hanya rating untuk tempat tertentu, dan mengembalikan respons dengan data rating yang sesuai.
@@ -145,3 +153,33 @@ Response:
 3. Jika placeId tidak disertakan, maka membuat query SQL untuk mengambil semua data rating.
 4. Menjalankan query SQL dan memeriksa apakah terjadi kesalahan. Jika terjadi kesalahan, mengembalikan respons 500 Internal Server Error dengan pesan kesalahan.
 5. Jika tidak terjadi kesalahan, mengembalikan respons 200 OK dengan data rating yang diambil dari database.
+
+## POST /rating/average
+
+Menerima request untuk mengambil rata-rata rating untuk suatu tempat, dan mengembalikan respons dengan data total jumlah rating dan nilai rata-rata rating.
+
+Request:
+
+    placeId: ID tempat yang akan dihitung ratingnya
+
+### Status HTTP: 400 Bad Request
+Response:
+```
+{
+  "error": "placeId parameter is required"
+}
+```
+
+### Status HTTP: 200 OK
+```
+{
+  "total_ratings": <Total jumlah rating untuk tempat tersebut>,
+  "average_rating": <Nilai rata-rata rating untuk tempat tersebut>
+}
+```
+
+1. Mengambil nilai placeId dari query parameter.
+2. Memeriksa apakah placeId disertakan. Jika tidak, mengembalikan respons 400 Bad Request.
+3. Membuat query SQL untuk mengambil total jumlah rating dan nilai rata-rata rating untuk tempat dengan placeId yang sesuai.
+4. Menjalankan query SQL dan memeriksa apakah terjadi kesalahan. Jika terjadi kesalahan, mengembalikan respons 500 Internal Server Error dengan pesan kesalahan.
+5. Jika tidak terjadi kesalahan, mengembalikan respons 200 OK dengan data total jumlah rating dan nilai rata-rata rating.
