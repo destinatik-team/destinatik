@@ -83,7 +83,7 @@ Response:
 
 Menerima request untuk memberikan rating pada suatu tempat, menyimpan data rating ke database, dan mengembalikan respons yang sesuai dengan hasil dari POST.
 
-### Request:
+Request:
 
     userId: ID pengguna yang memberikan rating
     placeId: ID tempat yang diberikan rating
