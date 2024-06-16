@@ -7,9 +7,12 @@ Destinatik API adalah sebuah aplikasi backend yang dibangun menggunakan Node.js 
 - Registrasi pengguna
 - Login pengguna
 - Mendapatkan list pengguna
+- Memberi Rating
+- Mendapatkan daftar rating
+- Menghitung rata-rata rating
 
-## Endpoint
-### POST /register
+# Endpoint
+## POST /register
 
 Endpoint ini digunakan untuk melakukan registrasi pengguna baru. Pengguna harus mengirimkan username, email, dan password dalam bentuk JSON.
 
@@ -32,7 +35,7 @@ Response:
 }
 ```
 
-### POST /login
+## POST /login
 Endpoint ini digunakan untuk melakukan login pengguna. Pengguna harus mengirimkan usernameOrEmail dan password dalam bentuk JSON.
 
 Request:
@@ -52,7 +55,7 @@ Response:
 }
 ```
 
-### GET /list
+## GET /list
 
 Endpoint ini digunakan untuk mendapatkan daftar pengguna yang terdaftar.
 
@@ -73,5 +76,42 @@ Response:
       "password": "password456"
     }
   ]
+}
+```
+
+## POST /rating/rate
+
+Menerima request untuk memberikan rating pada suatu tempat, menyimpan data rating ke database, dan mengembalikan respons yang sesuai dengan hasil dari POST.
+
+Request:
+
+    userId: ID pengguna yang memberikan rating
+    placeId: ID tempat yang diberikan rating
+    rating: Nilai rating yang diberikan
+
+### Status HTTP: 400 Bad Request
+Response:
+```
+{
+  "error": "Semua field harus diisi"
+}
+```
+### Status HTTP: 201 Created
+Response:
+```
+{
+  "status": "1",
+  "id": <ID penilaian yang baru ditambahkan>,
+  "userId": <ID pengguna yang memberikan rating>,
+  "placeId": <ID tempat yang diberikan rating>,
+  "rating": <Nilai rating yang diberikan>
+}
+```
+
+### Status HTTP: 500 Internal Server Error
+Response:
+```
+{
+  "error": "Terjadi kesalahan saat menyimpan rating"
 }
 ```
