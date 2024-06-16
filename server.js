@@ -92,6 +92,72 @@ app.get('/list', (req, res) => {
     res.json({rows});
   });
 });
+app.post('/rating/rate', (req, res) => {
+  const { userId, movieId, rating } = req.body;
+
+  if (!userId || !movieId || !rating) {
+    return res.status(400).json({ error: 'Semua field harus diisi' });
+  }
+
+  connection.query(
+    'INSERT INTO ratings (id, userId, movieId, rating) VALUES (NULL, ?, ?, ?)',
+    [userId, movieId, rating],
+    (error, result) => {
+      if (error) {
+        console.error(error);
+        return res.status(500).json({ error: 'Terjadi kesalahan saat menyimpan rating' });
+      }
+
+      res.status(201).json({ status: '1', id: result.insertId, userId, movieId, rating });
+    }
+  );
+});
+app.get('/rating/list', (req, res) => {
+  const placeId = req.query.placeId;
+
+  let sql;
+  if (placeId) {
+    sql = 'SELECT * FROM `rating` WHERE `placeId` = ?';
+    connection.query(sql, [placeId], (err, rows, fields) => {
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      }
+      res.json({ rows });
+    });
+  } else {
+    sql = 'SELECT * FROM `rating`';
+    connection.query(sql, (err, rows, fields) => {
+      if (err) {
+        return res.status(500).json({ error: err.message });
+      }
+      res.json({ rows });
+    });
+  }
+});
+app.get('/rating/average', (req, res) => {
+  const placeId = req.query.placeId;
+
+  if (!placeId) {
+    return res.status(400).json({ error: 'placeId parameter is required' });
+  }
+
+  const sql = `
+    SELECT 
+      COUNT(*) AS total_ratings,
+      AVG(rating) AS average_rating
+    FROM 
+      rating
+    WHERE 
+      placeId = ?
+  `;
+
+  connection.query(sql, [placeId], (err, rows, fields) => {
+    if (err) {
+      return res.status(500).json({ error: err.message });
+    }
+    res.json(rows[0]);
+  });
+});
 
 const PORT = process.env.PORT || 8080;
 app.listen(PORT, () => {
