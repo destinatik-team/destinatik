@@ -181,3 +181,53 @@ Response:
   "average_rating": <Nilai rata-rata rating untuk tempat tersebut>
 }
 ```
+
+## POST /maps/search
+Melakukan pencarian tempat di Google Maps menggunakan teks yang diterima dari request body, 
+dan mengembalikan respons dengan daftar tempat yang ditemukan, termasuk nama, alamat, koordinat lokasi, dan URL foto (jika tersedia). 
+Respons dibatasi hanya 5 hasil pencarian.
+
+
+1. Mengambil nilai access_token dan text dari request body.
+2. Membuat URL untuk melakukan pencarian menggunakan API Google Maps, dengan menambahkan access_token sebagai API key.
+3. Memeriksa status respons dari API Google Maps. Jika status adalah "OK", memproses hasil pencarian dan mengembalikan respons dengan format yang ditentukan.
+4. Jika terjadi kesalahan saat mengakses API Google Maps, mengembalikan respons 400 Bad Request dengan data error dari API.
+5. Jika terjadi kesalahan internal saat memproses request, mengembalikan respons 500 Internal Server Error dengan pesan kesalahan.
+
+Request:
+
+    access_token: Token akses untuk API Google Maps
+    text: Teks yang akan digunakan untuk melakukan pencarian di Google Maps
+
+### Status HTTP: 200 OK
+Response:
+```
+{
+  "rows": [
+    {
+      "name": "<Nama tempat>",
+      "address": "<Alamat tempat>",
+      "location": {
+        "lat": <Latitude>,
+        "lng": <Longitude>
+      },
+      "photos": [
+        {
+          "reference": "<Photo Reference>",
+          "url": "<URL Foto>"
+        },
+        ...
+      ]
+    },
+    ...
+  ]
+}
+```
+
+### Status HTTP: 400 Bad Request
+Response:
+```
+{
+  "error": <Response data dari API Google Maps>
+}
+```
