@@ -1,4 +1,5 @@
 const express = require('express');
+const axios = require('axios');
 const app = express();
 const bodyParser = require('body-parser');
 const mysql = require('mysql2');
@@ -221,6 +222,56 @@ app.get('/rating/average', (req, res) => {
         }
         res.json(rows[0]);
     });
+});
+
+app.post('/maps/search', async (req, res) => {
+  try {
+	const {
+        access_token,
+        text,
+    } = req.body;
+    const apiKey = access_token;
+    const url = `https://maps.googleapis.com/maps/api/place/textsearch/json?query=${encodeURIComponent(text)}&key=${apiKey}`;
+
+    const response = await axios.get(url);
+
+    if (response.data.status === 'OK') {
+      const rows = [];
+      let count = 0;
+
+      for (const row of response.data.results) {
+        if (count >= 5) {
+          break;
+        }
+
+        const photos = [];
+        if (row.photos) {
+          for (const photo of row.photos) {
+            const photoReference = photo.photo_reference;
+            const photoUrl = `https://maps.googleapis.com/maps/api/place/photo?maxwidth=400&photoreference=${photoReference}&key=${apiKey}`;
+            photos.push({ reference: photoReference, url: photoUrl });
+          }
+        }
+
+        const rowData = {
+          name: row.name,
+          address: row.formatted_address,
+          location: row.geometry.location,
+          photos
+        };
+
+        rows.push(rowData);
+        count++;
+      }
+
+      res.json({ rows });
+    } else {
+      res.status(400).json({ error: response.data });
+    }
+  } catch (error) {
+    console.error(error);
+    res.status(500).json({ error: 'An error occurred while processing the request.' });
+  }
 });
 
 const PORT = process.env.PORT || 8080;
