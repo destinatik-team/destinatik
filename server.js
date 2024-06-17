@@ -257,6 +257,7 @@ app.post('/maps/search', async (req, res) => {
           name: row.name,
           address: row.formatted_address,
           location: row.geometry.location,
+          place_id: row.place_id,
           photos
         };
 
