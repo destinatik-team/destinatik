@@ -107,6 +107,7 @@ Menerima request untuk memberikan rating pada suatu tempat, menyimpan data ratin
 3. Jika semua field sudah diisi, menyimpan data rating ke dalam database menggunakan query SQL INSERT INTO.
 4. Jika penyimpanan berhasil, mengembalikan respons 201 Created dengan informasi penilaian yang baru ditambahkan.
 5. Jika terjadi kesalahan saat menyimpan data, mengembalikan respons 500 Internal Server Error dengan pesan kesalahan.
+
 | Name | Data Type |
 | --- | --- |
 | userId | VARCHAR |
@@ -156,6 +157,7 @@ Menerima request untuk mengambil daftar rating, baik untuk semua rating atau han
 3. Jika placeId tidak disertakan, maka membuat query SQL untuk mengambil semua data rating.
 4. Menjalankan query SQL dan memeriksa apakah terjadi kesalahan. Jika terjadi kesalahan, mengembalikan respons 500 Internal Server Error dengan pesan kesalahan.
 5. Jika tidak terjadi kesalahan, mengembalikan respons 200 OK dengan data rating yang diambil dari database.
+
 | Name | Data Type |
 | --- | --- |
 | id | INT |
@@ -192,6 +194,7 @@ Menerima request untuk mengambil rata-rata rating untuk suatu tempat, dan mengem
 3. Membuat query SQL untuk mengambil total jumlah rating dan nilai rata-rata rating untuk tempat dengan placeId yang sesuai.
 4. Menjalankan query SQL dan memeriksa apakah terjadi kesalahan. Jika terjadi kesalahan, mengembalikan respons 500 Internal Server Error dengan pesan kesalahan.
 5. Jika tidak terjadi kesalahan, mengembalikan respons 200 OK dengan data total jumlah rating dan nilai rata-rata rating.
+
 | Name | Data Type |
 | --- | --- |
 | placeId | VARCHAR |
@@ -229,6 +232,7 @@ Respons dibatasi hanya 5 hasil pencarian.
 3. Memeriksa status respons dari API Google Maps. Jika status adalah "OK", memproses hasil pencarian dan mengembalikan respons dengan format yang ditentukan.
 4. Jika terjadi kesalahan saat mengakses API Google Maps, mengembalikan respons 400 Bad Request dengan data error dari API.
 5. Jika terjadi kesalahan internal saat memproses request, mengembalikan respons 500 Internal Server Error dengan pesan kesalahan.
+
 | Name | Data Type |
 | --- | --- |
 | access_token | VARCHAR |
