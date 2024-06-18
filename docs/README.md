@@ -211,6 +211,7 @@ Response:
         "lat": <Latitude>,
         "lng": <Longitude>
       },
+	  "place_id": "<place id from google>",
       "photos": [
         {
           "reference": "<Photo Reference>",
