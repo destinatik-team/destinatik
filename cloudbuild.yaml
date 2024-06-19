@@ -3,23 +3,23 @@ steps:
     args:
       - "build"
       - "-t"
-      - "us-central1-docker.pkg.dev/$PROJECT_ID/rekomendasi-artifact/model-image:$COMMIT_SHA"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/destinatik-artifact/model-image:$COMMIT_SHA"
       - "."
   - name: gcr.io/cloud-builders/docker
     args:
       - "push"
-      - "us-central1-docker.pkg.dev/$PROJECT_ID/rekomendasi-artifact/model-image:$COMMIT_SHA"
+      - "us-central1-docker.pkg.dev/$PROJECT_ID/destinatik-artifact/model-image:$COMMIT_SHA"
   - name: "gcr.io/cloud-builders/gcloud"
     entrypoint: gcloud
     args:
       - "run"
       - "deploy"
-      - "rekomendasi-api"
-      - "--image=us-central1-docker.pkg.dev/$PROJECT_ID/rekomendasi-artifact/model-image:$COMMIT_SHA"
+      - "destinatik-api"
+      - "--image=us-central1-docker.pkg.dev/$PROJECT_ID/destinatik-artifact/model-image:$COMMIT_SHA"
       - "--region=us-central1"
       - "--cpu=1"
       - "--memory=2048Mi"
       - "--allow-unauthenticated"
 images:
-  - "us-central1-docker.pkg.dev/$PROJECT_ID/rekomendasi-artifact/model-image:$COMMIT_SHA"
-logsBucket: "gs://rekomendasi-bucket99/logs"
+  - "us-central1-docker.pkg.dev/$PROJECT_ID/destinatik-artifact/model-image:$COMMIT_SHA"
+logsBucket: "gs://destinatik-buckets/logs"
