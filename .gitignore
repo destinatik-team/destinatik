@@ -1,3 +1,8 @@
 Model_v1.ipynb
 Modelling.ipynb
 Collaborative_Filtering_Destinatik_lev_V2.ipynb
+Collaborative_Filtering_Destinatik_v2.ipynb
+destinatik_modules.py
+destinatik_model_v2.keras
+__pycache__
+tfjs-ml.js
