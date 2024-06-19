@@ -4,5 +4,8 @@ Collaborative_Filtering_Destinatik_lev_V2.ipynb
 Collaborative_Filtering_Destinatik_v2.ipynb
 destinatik_modules.py
 destinatik_model_v2.keras
+destinatik_model_v2.h5
+model_destinatik_v1.h5
+model_destinatik_v1.json
 __pycache__
 tfjs-ml.js
