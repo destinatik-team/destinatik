@@ -51,7 +51,6 @@ Endpoint ini digunakan untuk melakukan login pengguna. Pengguna harus mengirimka
 | usernameOrEmail | VARCHAR |
 | password | VARCHAR |
 | status | VARCHAR |
-| token | VARCHAR |
 
 Request:
 ```
