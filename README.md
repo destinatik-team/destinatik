@@ -100,6 +100,36 @@ Response:
 }
 ```
 
+## GET /profile
+
+Mengambil informasi profil pengguna berdasarkan token yang valid di header Authorization.
+
+Request Header:
+```
+Authorization: Bearer <your-token>
+```
+
+### Status HTTP: 200 OK
+Response:
+```
+{
+    "id": <id_user>,
+    "username": "<username>",
+    "email": "<email>",
+    "password": "<password>",
+    "token": "<token>"
+}
+```
+
+### Status HTTP: 401 Unauthorized
+Response:
+```
+{
+  "error": "Token tidak valid"
+}
+```
+
+
 ## POST /rating/rate
 
 Menerima request untuk memberikan rating pada suatu tempat, menyimpan data rating ke database, dan mengembalikan respons yang sesuai dengan hasil dari POST.

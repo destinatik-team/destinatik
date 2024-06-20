@@ -131,6 +131,35 @@ app.get('/list', (req, res) => {
         });
     });
 });
+app.get('/profile', (req, res) => {
+  const authHeader = req.headers.authorization;
+  if (authHeader) {
+    const token = authHeader.split(' ')[1];
+    try {
+      const decoded = jwt.verify(token, 'shhhhh');
+      const userInfo = decoded.data;
+
+      // Query database untuk mendapatkan informasi pengguna
+      connection.query('SELECT * FROM user WHERE username = ? OR email = ?', [userInfo, userInfo], (err, results) => {
+        if (err) {
+          console.error(err);
+          return res.status(500).json({ error: 'Terjadi kesalahan pada server' });
+        }
+
+        if (results.length > 0) {
+          const user = results[0];
+          return res.json(user);
+        } else {
+          return res.status(401).json({ error: 'Token tidak valid' });
+        }
+      });
+    } catch (err) {
+      return res.status(401).json({ error: 'Token tidak valid' });
+    }
+  } else {
+    return res.status(401).json({ error: 'Authorization header tidak ditemukan' });
+  }
+});
 app.post('/rating/rate', (req, res) => {
     const {
         userId,
