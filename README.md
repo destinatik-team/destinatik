@@ -8,7 +8,7 @@ https://destinatik-api-pd46stytga-uc.a.run.app
 
 #### Path
 
-```http
+```
   /recommend
 ```
 
@@ -28,25 +28,25 @@ https://destinatik-api-pd46stytga-uc.a.run.app
 - Success
 
 ```json
-  {
+{
   	"place_id": row.Place_Id,
-		"place_name": row.Place_Name,
-		"category": row.Category
-	}
+	"place_name": row.Place_Name,
+	"category": row.Category
+}
 ```
 
 - Error no params provided
 ```json
-  {
-		"error": "Either user_id, city, or place_id must be provided"
-		"status": 400
-	}
+{
+	"error": "Either user_id, city, or place_id must be provided"
+	"status": 400
+}
 ```
 
 - Error no User ID found
 ```json
-  {
-		error: User ID not found
-		status: 400
-	}
+{
+	"error": "User ID not found"
+	status: 400
+}
 ```
