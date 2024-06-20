@@ -92,6 +92,7 @@ app.post('/login', (req, res) => {
 
             const user = rows[0];
             if (user.password === password) {
+				const userId = user.id;
                 const token = jwt.sign({
                     data: usernameOrEmail
                 }, 'shhhhh');
@@ -106,6 +107,7 @@ app.post('/login', (req, res) => {
                     }
                     res.set('Authorization', `Bearer ${token}`);
                     return res.json({
+						userId: userId,
                         'usernameOrEmail': usernameOrEmail,
                         status: '1'
                     });
