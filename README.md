@@ -56,7 +56,6 @@ Endpoint ini digunakan untuk melakukan login pengguna. Pengguna harus mengirimka
 Request:
 ```
 {
-  "userId": "<id user>",
   "usernameOrEmail": "example",
   "password": "password123"
 }
@@ -65,9 +64,9 @@ Request:
 Response:
 ```
 {
+  "userId": "<id user>",
   "usernameOrEmail": "example",
   "status": "1",
-  "token": "<token response>"
 }
 ```
 
