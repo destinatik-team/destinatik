@@ -66,6 +66,7 @@ Response:
   "userId": "<id user>",
   "usernameOrEmail": "example",
   "status": "1",
+  "token": "<token>"
 }
 ```
 
