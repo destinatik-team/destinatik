@@ -109,7 +109,8 @@ app.post('/login', (req, res) => {
                     return res.json({
 						userId: userId,
                         'usernameOrEmail': usernameOrEmail,
-                        status: '1'
+                        status: '1',
+                        'token': token
                     });
                 });
             } else {
