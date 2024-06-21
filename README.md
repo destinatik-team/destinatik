@@ -30,14 +30,14 @@ Using the [Kotlin programming language][1] to develop applications. Using [Retro
 [5]: https://www.figma.com/design/mlNJAhuP9P0FoCtrJ7AH1s/Untitled?node-id=0-1&t=RcOtFOxOOB1KX8kL-0 "Figma"
 [6]: https://drive.google.com/file/d/1Szo6Lo30A46HNntXgPb_mrHTFUXsTmem/view?usp=sharing "here"
 
-# Implementation Design
+## Implementation Design
 we do the application design process using the web-based application [Figma][5]
 
-# Features
+## Features
 These are our applications’s features. You can search the destination to look for the information. Then do a rating for the destination itself after you visit the place. You can also look for the maps, and additional features to switch to dark mode and push notifications. Before that things all, as a user you need to register if you don’t have an account in our app, then do login. If you have done using our app, you can also log out from your account.
 
-# Installation
+## Installation
 Apk file for app installation can be found on our latest release [here][6]
 
-# Preview Mobile Apps
+## Preview Mobile Apps
 ![alt text](https://github.com/destinatik-team/destinatik-mobile/blob/master/Screenshot.png?raw=true)
